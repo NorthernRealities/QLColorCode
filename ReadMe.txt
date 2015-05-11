@@ -12,17 +12,17 @@ See the end of this file for details.
 This is a Quick Look plugin that renders source code with syntax highlighting,
 using the Highlight library: <http://www.andre-simon.de/index.html>
 
-To install the plugin, just drag it to /Library/QuickLook or ~/Library/QuickLook.
-You may need to create that folder if it doesn't already exist.  This requires the
-program highlight to be installed under the /usr/local directory (the command
-'which highlight' should return /usr/local/bin/highlight).  The easiest way to do
-this is to use the brew package manager (http://brew.sh):
+To install the plugin, just drag it to /Library/QuickLook or
+~/Library/QuickLook. You may need to create that folder if it doesn't already
+exist. This requires the program highlight to be installed under the /usr/local
+directory ('which highlight' should return /usr/local/bin/highlight). The
+easiest way to do this is to use the brew package manager (http://brew.sh):
 $ brew update
 $ brew install highlight
-The first command updates the package information.  If you installed brew a while
-before it may download an old version of highlight.  The next version command
-installs highlight and any packages it needs.  If highlight is already installed
-then run the following after updating the package information:
+The first command updates the package information.  If you installed brew a
+while before it may download an old version of highlight.  The next version
+command installs highlight and any packages it needs.  If highlight is already
+installed then run the following after updating the package information:
 $ brew upgrade highlight
 
 If you want to configure QLColorCode, there are several "defaults" commands 
@@ -40,8 +40,8 @@ the font size:
     defaults write org.n8gray.QLColorCode fontSizePoints 9
     
 the color style (see http://www.andre-simon.de/dokuwiki/doku.php?id=theme_examples
-or try slateGreen to see how I roll.  Also included are solarized-light and solarized-dark
-as seen at http://ethanschoonover.com/solarized):
+or try slateGreen to see how I roll.  Also included are solarized-light and
+solarized-dark as seen at http://ethanschoonover.com/solarized):
     defaults write org.n8gray.QLColorCode hlTheme ide-xcode
     
 any extra command-line flags for Highlight (see below):

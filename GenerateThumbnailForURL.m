@@ -89,6 +89,9 @@ GenerateThumbnailForURL(void *thisInterface,
 done:
     n8log(@"Finished thumbnail after %.3f sec\n\n", -[startDate timeIntervalSinceNow] );
     [pool release];
+    if ( webView != NULL ) {
+        [webView release];
+    }
     return noErr;
 }
 

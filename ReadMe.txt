@@ -13,7 +13,17 @@ This is a Quick Look plugin that renders source code with syntax highlighting,
 using the Highlight library: <http://www.andre-simon.de/index.html>
 
 To install the plugin, just drag it to /Library/QuickLook or ~/Library/QuickLook.
-You may need to create that folder if it doesn't already exist.
+You may need to create that folder if it doesn't already exist.  This requires the
+program highlight to be installed under the /usr/local directory (the command
+'which highlight' should return /usr/local/bin/highlight).  The easiest way to do
+this is to use the brew package manager (http://brew.sh):
+$ brew update
+$ brew install highlight
+The first command updates the package information.  If you installed brew a while
+before it may download an old version of highlight.  The next version command
+installs highlight and any packages it needs.  If highlight is already installed
+then run the following after updating the package information:
+$ brew upgrade highlight
 
 If you want to configure QLColorCode, there are several "defaults" commands 
 that could be useful:
@@ -81,10 +91,6 @@ that having two conflicting UTI declarations for the same file extension can
 cause problems.  Note that if you do edit the Info.plist file you need to 
 nudge the system to tell it something has changed.  Moving the plugin to the
 desktop then back to its installed location should do the trick.
-
-To build from source, you need the Highlight library.  Download the source and 
-uncompress it somewhere, then make a symbolic link to that location from 
-./highlight
 
 As an aside, by changing colorize.sh you can use this plugin to render any file
 type that you can convert to HTML.  Have fun, and let me know if you do anything

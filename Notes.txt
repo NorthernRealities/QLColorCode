@@ -1,9 +1,9 @@
 Based on highlight: http://www.andre-simon.de/index.html
 (Was based on pygments: http://pygments.org)
 
-When installing a new version of highlight, make sure to update the 
-"highlight" symlink in the project dir.  Also merge in any updates to 
-filetypes.conf
+
+Had a *.* entry in the colorize.sh and it used ##*. to grab the extension and use that as the lang but it didn't work for swift.
+
 
 The version is handled in the Current Project Version variable in the project.
 

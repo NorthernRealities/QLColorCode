@@ -72,7 +72,6 @@
 		0E8776560D08E004005040B4 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		0E8776B60D08ED64005040B4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = SDKs/MacOSX10.5.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		0E8776BC0D08EDA4005040B4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
-		0E8FBB56141DA09D00269094 /* override */ = {isa = PBXFileReference; lastKnownFileType = folder; path = override; sourceTree = "<group>"; };
 		0EC047960CFBDADF009C986E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0EC047F20CFC000A009C986E /* Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes.txt; sourceTree = "<group>"; };
 		0ECBBB360CFCF98600416538 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0E8FBB56141DA09D00269094 /* override */,
 				8D576317048677EA00EA77CD /* Info.plist */,
 				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
 			);
@@ -201,7 +199,6 @@
 				8D57630F048677EA00EA77CD /* Resources */,
 				8D576311048677EA00EA77CD /* Sources */,
 				8D576313048677EA00EA77CD /* Frameworks */,
-				0E9139D70D10A8320067BAD6 /* Install highlight */,
 				0ECBBA6F0CFCA39E00416538 /* Copy to Library */,
 				0E1280381061C3EA0078EC05 /* Reset quicklookd */,
 			);
@@ -220,6 +217,8 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 2CA326220896AD4900168862 /* Build configuration list for PBXProject "QLColorCode" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = English;
@@ -280,20 +279,6 @@
 			shellPath = /bin/sh;
 			shellScript = "qlmanage -r";
 			showEnvVarsInLog = 0;
-		};
-		0E9139D70D10A8320067BAD6 /* Install highlight */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Install highlight";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/bin/zsh -x";
-			shellScript = "set err_exit\ncd $PROJECT_DIR/highlight\nX=\"-arch i386 -arch x86_64 -isysroot $SDKROOT -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\nexport CFLAGS=$X\nexport CXXFLAGS=$X\nexport LDFLAGS=$X\nmake -j 2\n# Make sure it was built universal\n#lipo -info src/highlight | grep -q i386 || exit 1\nlipo -info src/highlight | grep -q x86_64 || exit 1\nmake \\\n\tDESTDIR=$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH \\\n\tPREFIX=/highlight/ \\\n\tinstall\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -384,7 +369,7 @@
 		2CA326230896AD4900168862 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 2.0.2;
+				CURRENT_PROJECT_VERSION = 2.0.3;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -397,9 +382,8 @@
 		2CA326240896AD4900168862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
-				CURRENT_PROJECT_VERSION = 2.0.2;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 2.0.3;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;

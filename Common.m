@@ -83,8 +83,8 @@ NSData *colorizeURL(CFBundleRef bundle, CFURLRef url, int *status, int thumbnail
     [env addEntriesFromDictionary:[defaults persistentDomainForName:myDomain]];
     
     NSString *cmd = [NSString stringWithFormat:
-                     @"'%@/colorize.sh' '%@' '%@' %s", 
-                     rsrcEsc, rsrcEsc, targetEsc, thumbnail ? "1" : "0"];
+                     @"'%@/colorize.sh' '%@' %s",
+                     rsrcEsc, targetEsc, thumbnail ? "1" : "0"];
     n8log(@"cmd = %@", cmd);
     
     output = runTask(cmd, env, status);
